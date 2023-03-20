@@ -36,12 +36,12 @@ const Sidebar = () => {
       <div className="absolute md:hidden block top-6 right-3">
         {!mobileMenuOpen ? (
           <HiOutlineMenu
-            className="w-6 h-6 mr-2 text-white"
+            className="w-6 h-6 mr-2 text-white z-500"
             onClick={() => setMobileMenuOpen(true)}
           />
         ) : (
           <RiCloseLine
-            className="w-6 h-6 mr-2 text-white"
+            className="w-6 h-6 mr-2 text-white z-500"
             onClick={() => setMobileMenuOpen(false)}
           />
         )}
