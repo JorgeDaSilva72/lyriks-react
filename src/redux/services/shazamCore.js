@@ -32,7 +32,7 @@ export const shazamCoreApi = createApi({
       query: ({ songid }) => `songs/get-details?key=${songid}`,
     }),
     getSongRelated: builder.query({
-      query: ({ songid }) => `songs/list-recommendations?key=${songid}`,
+      query: ({ songid }) => `songs/get-related-artist?key=${songid}`,
     }),
   }),
 });
