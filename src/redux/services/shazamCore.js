@@ -26,7 +26,7 @@ export const shazamCoreApi = createApi({
         `v1/search/multi?search_type=SONGS_ARTISTS&query=${searchTerm}`,
     }),
     getArtistDetails: builder.query({
-      query: (artistId) => `v2/artists/details?artist_id=${artistId}`,
+      query: (artistId) => `artists/get-details?id=${artistId}`,
     }),
     getSongDetails: builder.query({
       query: ({ songid }) => `songs/get-details?key=${songid}`,
