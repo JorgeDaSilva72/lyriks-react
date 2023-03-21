@@ -22,8 +22,7 @@ export const shazamCoreApi = createApi({
       query: (countryCode) => `charts/track?locale=${countryCode}`,
     }),
     getSongsBySearch: builder.query({
-      query: (searchTerm) =>
-        `v1/search/multi?search_type=SONGS_ARTISTS&query=${searchTerm}`,
+      query: (searchTerm) => `search?term=${searchTerm}`,
     }),
     getArtistDetails: builder.query({
       query: (artistId) => `artists/get-details?id=${artistId}`,
