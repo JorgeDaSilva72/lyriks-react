@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
+
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 
@@ -9,8 +10,12 @@ const Search = () => {
   const { searchTerm } = useParams();
   const { activeSong, isPlaying } = useSelector((state) => state.player);
   const { data, isFetching, error } = useGetSongsBySearchQuery(searchTerm);
-
+  const divRef = useRef(null);
   const songs = data?.tracks?.hits.map((song) => song.track);
+
+  useEffect(() => {
+    divRef.current.scrollIntoView({ behavior: "smooth" });
+  });
 
   if (isFetching) return <Loader title={`Searching ${searchTerm}...`} />;
 
