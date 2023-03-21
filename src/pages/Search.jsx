@@ -14,7 +14,7 @@ const Search = () => {
   const songs = data?.tracks?.hits.map((song) => song.track);
 
   useEffect(() => {
-    divRef.current.scrollIntoView({ behavior: "smooth" });
+    divRef.current?.scrollIntoView({ behavior: "smooth" });
   });
 
   if (isFetching) return <Loader title={`Searching ${searchTerm}...`} />;
@@ -22,7 +22,7 @@ const Search = () => {
   if (error) return <Error />;
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col" ref={divRef}>
       <h2 className="font-bold text-3xl text-white text-left mt-4 mb-10">
         Showing results for <span className="font-black">{searchTerm}</span>
       </h2>
