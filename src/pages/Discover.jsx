@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+// import React, { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { Error, Loader, SongCard } from "../components";
@@ -15,11 +15,11 @@ const Discover = () => {
   // const { data, isFetching, error } = useGetSongsByGenreQuery(
   //   genreListId || "POP")
   const { data, isFetching, error } = useGetTopChartsQuery();
-  const divRef = useRef(null);
+  // const divRef = useRef(null);
 
-  useEffect(() => {
-    divRef.current?.scrollIntoView({ behavior: "smooth" });
-  });
+  // useEffect(() => {
+  //   divRef.current?.scrollIntoView({ behavior: "smooth" });
+  // });
 
   if (isFetching) return <Loader title="Loading songs..." />;
 
@@ -28,7 +28,8 @@ const Discover = () => {
   const genreTitle = genres.find(({ value }) => value === genreListId)?.title;
 
   return (
-    <div className="flex flex-col" ref={divRef}>
+    // <div className="flex flex-col" ref={divRef}>
+    <div className="flex flex-col">
       <div className="w-full flex justify-between items-center sm:flex-row flex-col mt-4 mb-10">
         <h2 className="font-bold text-3xl text-white text-left">
           Discover {genreTitle}
