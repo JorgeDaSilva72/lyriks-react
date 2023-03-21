@@ -57,9 +57,9 @@ const TopPlay = () => {
   const { data } = useGetTopChartsQuery();
   const divRef = useRef(null);
 
-  useEffect(() => {
-    divRef.current.scrollIntoView({ behavior: "smooth" });
-  });
+  // useEffect(() => {
+  //   divRef.current.scrollIntoView({ behavior: "smooth" });
+  // });
 
   const topPlays = data?.tracks?.slice(0, 5);
 
