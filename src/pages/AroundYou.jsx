@@ -1,5 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
-
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useSelector } from "react-redux";
 
@@ -11,7 +10,6 @@ const CountryTracks = () => {
   const [loading, setLoading] = useState(true);
   const { activeSong, isPlaying } = useSelector((state) => state.player);
   const { data, isFetching, error } = useGetSongsByCountryQuery(country);
-  const divRef = useRef(null);
 
   useEffect(() => {
     axios
@@ -23,16 +21,15 @@ const CountryTracks = () => {
       .then((res) => setCountry(res?.data?.location.country))
       .catch((err) => console.log(err))
       .finally(() => setLoading(false));
-    divRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [country]);
-  console.log("country", country);
+
   if (isFetching && loading)
     return <Loader title="Loading Songs around you..." />;
 
   if (error && country !== "") return <Error />;
 
   return (
-    <div className="flex flex-col" ref={divRef}>
+    <div className="flex flex-col">
       <h2 className="font-bold text-3xl text-white text-left mt-4 mb-10">
         Around you <span className="font-black">{country}</span>
       </h2>
